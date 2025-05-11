@@ -1,22 +1,40 @@
 import pandas as pd
 import joblib
+from model.config import CONFIG
+
 
 def load_artifacts():
-    model = joblib.load('model/model.pkl')
-    scaler = joblib.load('model/scaler.pkl')
+    model = joblib.load(CONFIG['artifacts']['model_path'])
+    scaler = joblib.load(CONFIG['artifacts']['scaler_path'])
     return model, scaler
+
 
 def predict(sample: dict):
     """
+    Makes prediction for a single sample
     sample = {'temp': float, 'pressure': float, 'flow': float}
     """
     model, scaler = load_artifacts()
 
-    # Convert the input sample into a pandas DataFrame with explicit column names
+    # Create DataFrame with proper column names
     sample_df = pd.DataFrame([sample], columns=['temp', 'pressure', 'flow'])
 
-    # Apply scaling
-    X = scaler.transform(sample_df)
+    # Scale the features
+    X_scaled = pd.DataFrame(
+        scaler.transform(sample_df),
+        columns=['temp', 'pressure', 'flow']
+    )
 
-    # Predict using the model
-    return model.predict(X)[0]
+    # Debug - print scaled values
+    print(f"Scaled input: {X_scaled.values}")
+    
+    # For debugging, get prediction probability
+    if hasattr(model, 'predict_proba'):
+        probs = model.predict_proba(X_scaled)
+        print(f"Prediction probabilities: {probs}")
+    
+    # Make prediction
+    prediction = model.predict(X_scaled)[0]
+    print(f"Model prediction: {prediction}")
+    
+    return prediction

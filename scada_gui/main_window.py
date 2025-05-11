@@ -2,7 +2,7 @@ import tkinter as tk
 from scada_gui.statistics_window import open_statistics
 from scada_gui.process_window1 import open_process1
 from scada_gui.process_window2 import open_process2
-from scada_gui.plc_simulation import open_plc_sim
+from scada_gui.plc_simulation import open_plc_simulation as open_plc_sim
 
 # vizuālie efekti
 def apply_hover_effects(button, normal_bg, hover_bg):

@@ -1,20 +1,30 @@
 from sklearn.ensemble import RandomForestClassifier
+import os
+
+# Get the base project directory
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CONFIG = {
-    'model_class': RandomForestClassifier,  # Modelis, kuru izmantot
-    'model_params': {
-        'n_estimators': 100,
-        'max_depth': 5,
+    'data': {
+        'input_path': os.path.join(BASE_DIR, 'data', 'training_data.csv'),
+        'processed_path': os.path.join(BASE_DIR, 'data', 'processed_data.csv'),
+        'feature_columns': ['temp', 'pressure', 'flow'],
+        'target_column': 'label',
+        'test_size': 0.15,  # Samazināts no 0.2 uz 0.15, lai vairāk datu izmantotu apmācībai
         'random_state': 42
     },
-    'data': {
-        'input_path': 'data/scada_data.csv',  # Oriģinālie dati
-        'processed_path': 'data/processed.csv',  # Apstrādātie dati
-        'test_size': 0.2,  # Testēšanas datu daļa
-        'random_state': 42  # Pētniecības sēkla datu sadalījumam
-    },
     'artifacts': {
-        'model_path': 'model/model.pkl',  # Ceļš uz saglabāto modeli
-        'scaler_path': 'model/scaler.pkl'  # Ceļš uz saglabāto skaleri
-    }
+        'base_path': os.path.join(BASE_DIR, 'model', 'artifacts'),
+        'model_path': os.path.join(BASE_DIR, 'model', 'artifacts', 'model.pkl'),
+        'scaler_path': os.path.join(BASE_DIR, 'model', 'artifacts', 'scaler.pkl')
+    },
+    'logging': {
+        'log_path': os.path.join(BASE_DIR, 'logs')
+    },
+    'model_class': RandomForestClassifier
 }
+
+# Create necessary directories
+os.makedirs(CONFIG['artifacts']['base_path'], exist_ok=True)
+os.makedirs(CONFIG['logging']['log_path'], exist_ok=True)
+os.makedirs(os.path.dirname(CONFIG['data']['processed_path']), exist_ok=True)

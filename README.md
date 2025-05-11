@@ -1,11 +1,9 @@
-# SCADA AI Project
+# SCADA STUDIJU PROJEKTS
 
 ## Apraksts
-Šis ir SCADA AI prototips Pythonā ar:
-- Sensoru datu apstrādi un anomāliju detekciju (RandomForest)
-- Tkinter GUI: galvenais logs, statistikas logs, procesi un PLC simulācija
-- (Opcija) TCP/UDP vai OPC UA komunikācija
-
+Šis ir SCADA projekta prototips Pythonā
+Autors: Linards Tomass Bekeris
+221rdb161
 ## Uzstādīšana
 ```bash
 git clone <repo>

@@ -2,7 +2,9 @@
 
 ## Apraksts
 Šis ir SCADA projekta prototips Pythonā
+
 Autors: Linards Tomass Bekeris
+
 221rdb161
 ## Uzstādīšana
 ```bash

@@ -5,3 +5,4 @@ matplotlib
 tk
 opcua-client 
 imbalanced-learn
+seaborn

@@ -1,0 +1,34 @@
+2025-05-11 04:18:46,011 - INFO - Starting model training
+2025-05-11 04:18:46,012 - INFO - Starting data preparation
+2025-05-11 04:18:46,014 - INFO - Loaded data with shape: (1000, 5)
+2025-05-11 04:18:46,015 - INFO - Class distribution before balancing:
+label
+FAULT    524
+OK       476
+Name: count, dtype: int64
+2025-05-11 04:18:46,021 - INFO - Class distribution after balancing:
+label
+FAULT    524
+OK       524
+Name: count, dtype: int64
+2025-05-11 04:18:46,549 - INFO - Cross-validation scores: [0.5297619  0.48809524 0.45833333 0.47305389 0.44311377]
+2025-05-11 04:18:46,550 - INFO - Average CV score: 0.478 (+/- 0.059)
+2025-05-11 04:18:46,695 - INFO - Test Set Accuracy: 0.548
+2025-05-11 04:18:46,695 - INFO - Confusion Matrix:
+[[62 43]
+ [52 53]]
+2025-05-11 04:18:46,699 - INFO - Classification Report:
+              precision    recall  f1-score   support
+
+       FAULT       0.54      0.59      0.57       105
+          OK       0.55      0.50      0.53       105
+
+    accuracy                           0.55       210
+   macro avg       0.55      0.55      0.55       210
+weighted avg       0.55      0.55      0.55       210
+
+2025-05-11 04:18:46,707 - INFO - Feature Importances:
+    feature  importance
+2      flow    0.341327
+1  pressure    0.330094
+0      temp    0.328580

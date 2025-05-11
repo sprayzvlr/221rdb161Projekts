@@ -1,0 +1,5 @@
+2025-05-11 04:08:22,138 - INFO - Starting model training
+2025-05-11 04:08:22,139 - INFO - Starting data preparation
+2025-05-11 04:08:22,141 - INFO - Loaded data with shape: (1000, 5)
+2025-05-11 04:08:22,142 - ERROR - Error in data preparation: could not convert string to float: '1/1/2024 0:00'
+2025-05-11 04:08:22,142 - ERROR - Error in model training: could not convert string to float: '1/1/2024 0:00'

@@ -2,6 +2,7 @@ import tkinter as tk
 from scada_gui.statistics_window import open_statistics
 from scada_gui.process_window1 import open_process1
 from scada_gui.process_window2 import open_process2
+from scada_gui.process_window3 import open_process3
 from scada_gui.plc_simulation import open_plc_simulation as open_plc_sim
 
 # vizuālie efekti
@@ -16,7 +17,7 @@ def apply_hover_effects(button, normal_bg, hover_bg):
 def run_main_window():
     root = tk.Tk()
     root.title("Autors - Linards Tomass Bekeris")
-    root.geometry("700x700")
+    root.geometry("700x800")
     root.config(bg="#333333")
 
     # === Virsraksts (ar ēnu) ===
@@ -62,6 +63,7 @@ def run_main_window():
         ("Statistika", open_statistics),
         ("Process 1", open_process1),
         ("Process 2", open_process2),
+        ("Process 3", open_process3),
         ("PLC Simulācija", open_plc_sim)
     ]
 

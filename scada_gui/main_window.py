@@ -4,6 +4,10 @@ from scada_gui.process_window1 import open_process1
 from scada_gui.process_window2 import open_process2
 from scada_gui.process_window3 import open_process3
 from scada_gui.plc_simulation import open_plc_simulation as open_plc_sim
+from communication.hmi import ProcessControlHMI
+from PyQt5.QtWidgets import QApplication
+import sys
+
 
 # vizuālie efekti
 def apply_hover_effects(button, normal_bg, hover_bg):
@@ -13,11 +17,25 @@ def apply_hover_effects(button, normal_bg, hover_bg):
         button.config(bg=normal_bg)
     button.bind("<Enter>", on_enter)
     button.bind("<Leave>", on_leave)
+def open_hmi():
+    """Funkcija, kas atver Process Control HMI logu"""
+    # Pārbaude, vai PyQt QApplication objekts jau eksistē
+    app = QApplication.instance()
+    if app is None:
+        app = QApplication(sys.argv)
+
+    # Izveidojam jaunu HMI logu
+    window = ProcessControlHMI()
+    window.show()
+
+    # Ja šis ir vienīgais logs, tad palaiž nepieciešamo event loop
+    if QApplication.instance() is not None and len(QApplication.instance().topLevelWidgets()) == 1:
+        app.exec_()
 
 def run_main_window():
     root = tk.Tk()
     root.title("Autors - Linards Tomass Bekeris")
-    root.geometry("700x800")
+    root.geometry("700x900")
     root.config(bg="#333333")
 
     # === Virsraksts (ar ēnu) ===
@@ -64,7 +82,9 @@ def run_main_window():
         ("Process 1", open_process1),
         ("Process 2", open_process2),
         ("Process 3", open_process3),
-        ("PLC Simulācija", open_plc_sim)
+        ("PLC Simulācija", open_plc_sim),
+        ("TCP servera HMI", open_hmi)
+
     ]
 
     for text, command in buttons:

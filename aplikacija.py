@@ -7,10 +7,10 @@ from scada_gui.main_window import run_main_window
 if __name__ == '__main__':
     # Ja modelis nav apmācīts, trenē
     if not os.path.exists('model/artifacts/model.pkl'):
-        print("Model not found. Training model...")
+        print("Modelis nav atrasts, uzsak trenesanu")
         train()
     else:
-        print("Model already exists. Skipping training.")
+        print("Modelis eksiste, izlaizam trenesanu")
 
-    # Startē GUI
+    # GUI startesana
     run_main_window()

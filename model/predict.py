@@ -16,19 +16,19 @@ def predict(sample: dict):
     """
     model, scaler = load_artifacts()
 
-    # Create DataFrame with proper column names
+
     sample_df = pd.DataFrame([sample], columns=['temp', 'pressure', 'flow'])
 
-    # Scale the features
+
     X_scaled = pd.DataFrame(
         scaler.transform(sample_df),
         columns=['temp', 'pressure', 'flow']
     )
 
-    # Debug - print scaled values
+    # Debug
     print(f"Scaled input: {X_scaled.values}")
     
-    # For debugging, get prediction probability
+    # prediction probability
     if hasattr(model, 'predict_proba'):
         probs = model.predict_proba(X_scaled)
         print(f"Prediction probabilities: {probs}")

@@ -1,7 +1,6 @@
 from sklearn.ensemble import RandomForestClassifier
 import os
 
-# Get the base project directory
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 CONFIG = {
@@ -10,7 +9,7 @@ CONFIG = {
         'processed_path': os.path.join(BASE_DIR, 'data', 'processed_data.csv'),
         'feature_columns': ['temp', 'pressure', 'flow'],
         'target_column': 'label',
-        'test_size': 0.15,  # Samazināts no 0.2 uz 0.15, lai vairāk datu izmantotu apmācībai
+        'test_size': 0.15,  # Samazinaju no 0.2 uz 0.15, lai vairāk datu izmantotu apmācībai
         'random_state': 42
     },
     'artifacts': {
@@ -24,7 +23,6 @@ CONFIG = {
     'model_class': RandomForestClassifier
 }
 
-# Create necessary directories
 os.makedirs(CONFIG['artifacts']['base_path'], exist_ok=True)
 os.makedirs(CONFIG['logging']['log_path'], exist_ok=True)
 os.makedirs(os.path.dirname(CONFIG['data']['processed_path']), exist_ok=True)

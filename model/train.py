@@ -4,11 +4,12 @@ import logging
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import classification_report, confusion_matrix, accuracy_score
-from imblearn.over_sampling import SMOTE
+
 import joblib
 from model.config import CONFIG
 import numpy as np
 
+from imblearn.over_sampling import SMOTE
 
 def setup_logging():
     log_dir = CONFIG['logging']['log_path']
@@ -25,6 +26,7 @@ def setup_logging():
 
 
 def prepare_data(generate_more_samples=True, target_samples=1000):
+    from imblearn.over_sampling import SMOTE
     logger = setup_logging()
 
     # Load and prepare data

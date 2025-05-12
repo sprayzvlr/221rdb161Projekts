@@ -13,7 +13,6 @@ def load_artifacts():
     model_path = CONFIG['artifacts']['model_path']
     scaler_path = CONFIG['artifacts']['scaler_path']
 
-    # Create artifacts directory if it doesn't exist
     os.makedirs(os.path.dirname(model_path), exist_ok=True)
 
     if not os.path.exists(model_path):

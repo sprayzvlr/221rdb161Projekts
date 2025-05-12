@@ -11,17 +11,9 @@ seaborn
 
 # GUI bibliotēkas
 PyQt5
-tkinter
 
 # Tīkla un komunikācijas bibliotēkas
-opcua-client
-socket
-
-# Logging un utilities
-logging
-datetime
-time
-random
+python-opcua
 
 # Citi
 pillow

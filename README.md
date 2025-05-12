@@ -9,7 +9,15 @@ Autors: Linards Tomass Bekeris
 ## Uzstādīšana
 ```bash
 git clone <repo>
-cd scada_ai_project
+cd StudijuProjekts(SCADA)221rdb161
 python -m venv venv
-source venv/bin/activate
+source venv/bin/activate  # Linux/macOS
+# vai
+venv\Scripts\activate  # Windows
 pip install -r requirements.txt
+```
+
+## Palaišana
+```bash
+python aplikacija.py
+```

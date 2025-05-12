@@ -1,8 +1,27 @@
+# Datu apstrāde un analīze
 pandas
+numpy
 scikit-learn
 joblib
-matplotlib
-tk
-opcua-client 
 imbalanced-learn
+
+# Vizualizācija
+matplotlib
 seaborn
+
+# GUI bibliotēkas
+PyQt5
+tkinter
+
+# Tīkla un komunikācijas bibliotēkas
+opcua-client
+socket
+
+# Logging un utilities
+logging
+datetime
+time
+random
+
+# Citi
+pillow
